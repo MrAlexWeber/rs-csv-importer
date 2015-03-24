@@ -1,4 +1,5 @@
 === Really Simple CSV Importer ===
+
 Contributors: hissy
 Tags: importer, csv, acf, cfs
 Requires at least: 3.6
@@ -27,6 +28,7 @@ Alternative CSV Importer plugin. Simple and powerful, best for geeks.
 You can get example CSV files in `/wp-content/plugins/really-simple-csv-importer/sample` directory.
 
 = Available column names and values: =
+
 * `ID` or `post_id`: (int) post id.  
   This value is not required. The post ID is already exists in your blog, importer will update that post data. If the ID is not exists, importer will trying to create a new post with suggested ID.
 * `post_author`: (login or ID) The user name or user ID number of the author.
@@ -52,13 +54,16 @@ Note: To set the page template of a page, use custom field key of `_wp_page_temp
 Note: If providing a post_status of 'future' you must specify the post_date in order for WordPress to know when to publish your post.
 
 = Advanced Custom Fields plugin integrate =
+
 If advanced custom field key is exists, importer will trying to use [update_field](http://www.advancedcustomfields.com/resources/functions/update_field/) function instead of built-in add_post_meta function.  
 How to find advanced custom field key: [Finding the field key](http://www.advancedcustomfields.com/resources/functions/update_field/#finding-the%20field%20key)
 
 = Official public repository =
+
 Add star and read future issues about rs-csv-importer on [GitHub](https://github.com/hissy/rs-csv-importer)!
 
 = Thanks =
+
 Cover banner designed by @[luchino__](http://uwasora.com/)
 
 == Installation ==
