@@ -122,12 +122,12 @@ Because PHP cannot read multibyte text cells in some cases.
 
 Yes. Please use `really_simple_csv_importer_save_meta` filter to make array data.
 
-## How to debug import data ## 
+## How to debug import data == 
 
 *Really Simple CSV Importer Debugger add-on* enables you to dry-run-testing and show more detailed post, meta, taxonomy data of each csv row.  
 Download from [gist](https://gist.github.com/hissy/7175656).
 
-## How to customize import post data ## 
+## How to customize import post data == 
 
 There are three filters available in the importer.
 
@@ -143,24 +143,24 @@ Parameters:
 
 Example:
 
-`
+```
 function really_simple_csv_importer_save_post_filter( $post, $is_update ) {
 	
 	// remove specific tag from import data
 	if (isset($post['post_tags'])) {
-		$_tags ### array();
+		$_tags = array();
 		foreach ($post['post_tags'] as $tag) {
-			if ($tag !### 'Apple') {
-				$_tags[] ### $tag;
+			if ($tag != 'Apple') {
+				$_tags[] = $tag;
 			}
 		}
-		$post['post_tags'] ### $_tags;
+		$post['post_tags'] = $_tags;
 	}
 	
 	return $post;
 }
 add_filter( 'really_simple_csv_importer_save_post', 'really_simple_csv_importer_save_post_filter', 10, 2 );
-`
+```
 
 
 ### really_simple_csv_importer_save_meta 
@@ -175,19 +175,19 @@ Parameters:
 
 Example:
 
-`
+```
 function really_simple_csv_importer_save_meta_filter( $meta, $post, $is_update ) {
 	
 	// serialize metadata
-	$meta_array ### array();
-	if (isset($meta['meta_key_1'])) $meta_array[] ### $meta['meta_key_1'];
-	if (isset($meta['meta_key_2'])) $meta_array[] ### $meta['meta_key_2'];
-	$meta ### array( 'meta_key' => $meta_array );
+	$meta_array = array();
+	if (isset($meta['meta_key_1'])) $meta_array[] = $meta['meta_key_1'];
+	if (isset($meta['meta_key_2'])) $meta_array[] = $meta['meta_key_2'];
+	$meta = array( 'meta_key' => $meta_array );
 	
 	return $meta;
 }
 add_filter( 'really_simple_csv_importer_save_meta', 'really_simple_csv_importer_save_meta_filter', 10, 3 );
-`
+```
 
 
 ### really_simple_csv_importer_save_tax 
@@ -202,25 +202,25 @@ Parameters:
 
 Example:
 
-`
+```
 function really_simple_csv_importer_save_tax_filter( $tax, $post, $is_update ) {
 	
 	// Fix misspelled taxonomy
 	if (isset($tax['actors'])) {
-		$_actors ### array();
+		$_actors = array();
 		foreach ($tax['actors'] as $actor) {
-			if ($actor ## 'Johnny Dep') {
-				$actor ### 'Johnny Depp';
+			if ($actor == 'Johnny Dep') {
+				$actor = 'Johnny Depp';
 			}
-			$_actors[] ### $actor;
+			$_actors[] = $actor;
 		}
-		$tax['actors'] ### $_actors;
+		$tax['actors'] = $_actors;
 	}
 	
 	return $tax;
 }
 add_filter( 'really_simple_csv_importer_save_tax', 'really_simple_csv_importer_save_tax_filter', 10, 3 );
-`
+```
 
 ## How to customize the post data after importing to database 
 
@@ -231,7 +231,7 @@ This action provides availability to run some tasks after importing.
 
 Example: [gist](https://gist.github.com/hissy/fe0aa2582b78394a3a82)
 
-## How to customize the importing process entirely ## 
+## How to customize the importing process entirely == 
 
 
 ### really_simple_csv_importer_class 
@@ -241,7 +241,6 @@ This filter provides availability to completely replace the `RS_CSV_Importer#sav
 Example: [gist](https://gist.github.com/hissy/199ad9be855ec9be1e54)
 
 ## Changelog 
-
 
 ### 1.1 
 
