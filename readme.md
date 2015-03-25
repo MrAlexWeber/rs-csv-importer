@@ -70,6 +70,7 @@ Add star and read future issues about rs-csv-importer on [GitHub](https://github
 
 Cover banner designed by @[luchino__](http://uwasora.com/)
 
+
 ## Installation 
 
 1. Upload All files to the `/wp-content/plugins/` directory.
@@ -77,8 +78,8 @@ Cover banner designed by @[luchino__](http://uwasora.com/)
 3. Go to the Import page under Tools menu.
 4. Click CSV link, read the notification, then just upload and import.
 
-## Frequently Asked Questions 
 
+## Frequently Asked Questions 
 
 ### Should I fill all columns of post data? 
 
@@ -99,7 +100,7 @@ Yes. Please use ID field to specify the new post ID.
 
 Yes. You can use column names same as wp_post table, but if the column name does not match, it creates a custom field (post meta) data. Importing custom taxonomy is a bit more complicated, "tax_{taxonomy}" means, "tax_" is prefix, and {taxonomy} is name of custom taxonomy (not labels).
 
-Here is a example.
+Here is an example.
 
 **csv file**  
 "post_title","released","tax_actors"  
@@ -122,15 +123,14 @@ Because PHP cannot read multibyte text cells in some cases.
 
 Yes. Please use `really_simple_csv_importer_save_meta` filter to make array data.
 
-## How to debug import data == 
+## How to debug import data 
 
 *Really Simple CSV Importer Debugger add-on* enables you to dry-run-testing and show more detailed post, meta, taxonomy data of each csv row.  
 Download from [gist](https://gist.github.com/hissy/7175656).
 
-## How to customize import post data == 
+## How to customize import post data 
 
 There are three filters available in the importer.
-
 
 ### really_simple_csv_importer_save_post 
 
@@ -162,7 +162,6 @@ function really_simple_csv_importer_save_post_filter( $post, $is_update ) {
 add_filter( 'really_simple_csv_importer_save_post', 'really_simple_csv_importer_save_post_filter', 10, 2 );
 ```
 
-
 ### really_simple_csv_importer_save_meta 
 
 This filter is applied to post meta data.
@@ -188,7 +187,6 @@ function really_simple_csv_importer_save_meta_filter( $meta, $post, $is_update )
 }
 add_filter( 'really_simple_csv_importer_save_meta', 'really_simple_csv_importer_save_meta_filter', 10, 3 );
 ```
-
 
 ### really_simple_csv_importer_save_tax 
 
@@ -224,21 +222,20 @@ add_filter( 'really_simple_csv_importer_save_tax', 'really_simple_csv_importer_s
 
 ## How to customize the post data after importing to database 
 
-
 ### really_simple_csv_importer_post_saved 
 
 This action provides availability to run some tasks after importing.
 
 Example: [gist](https://gist.github.com/hissy/fe0aa2582b78394a3a82)
 
-## How to customize the importing process entirely == 
-
+## How to customize the importing process entirely 
 
 ### really_simple_csv_importer_class 
 
 This filter provides availability to completely replace the `RS_CSV_Importer#save_post` method.
 
 Example: [gist](https://gist.github.com/hissy/199ad9be855ec9be1e54)
+
 
 ## Changelog 
 
@@ -331,8 +328,8 @@ Example: [gist](https://gist.github.com/hissy/199ad9be855ec9be1e54)
 
 * First Release (beta)
 
-## Upgrade Notice 
 
+## Upgrade Notice 
 
 ### 1.0 
 
